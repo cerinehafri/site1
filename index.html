@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elFouki Transcriber - أداة متقدمة لنسخ وتحرير الفيديوهات</title>
+    <meta name="description" content="elFouki Transcriber هي أداة متقدمة لنسخ وتحرير الفيديوهات والصوتيات مع دعم القرآن الكريم. قم بتحميل التطبيق الآن واستمتع بجميع الميزات.">
+    <meta name="keywords" content="elFouki, Transcriber, نسخ الفيديوهات, تحرير النصوص, القرآن الكريم">
+    <meta name="author" content="elFouki Team">
+    <link rel="canonical" href="https://www.elfouki-transcriber.com">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap"></noscript>
+    <style>
+
+        /* ملف styles.css */
+
+        .logo {
+            width: 170px; /* عرض الصورة */
+            height: auto; /* الحفاظ على نسبة الطول إلى العرض */
+            position: absolute; /* تحديد الموضع المطلق */
+            top: 20px; /* المسافة من الأعلى */
+            right: 20px; /* المسافة من اليمين */
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+
+        header {
+            background: #641C34;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .buttons .btn {
+            background: #fff;
+            color: #641C34;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .buttons .btn:hover {
+            background: #f0f0f0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .features {
+            padding: 40px 0;
+            background: #fff;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .download {
+            background: #641C34;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .download .btn {
+            background: #fff;
+            color: #641C34;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .download .btn:hover {
+            background: #f0f0f0;
+        }
+
+        .contact {
+            padding: 40px 0;
+            background: #fff;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact input, .contact textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .contact button {
+            background: #641C34;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .contact button:hover {
+            background: #4a1426;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .alert {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .alert.info {
+            background-color: #641C34;
+        }
+
+        .alert.success {
+            background-color: #28a745;
+        }
+
+        .alert.error {
+            background-color: #dc3545;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background-color: #641C34;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-X');
+    </script>
+</head>
+<body>
+    <!-- الصفحة الرئيسية -->
+    <header>
+        <div class="container">
+            <!-- إضافة اللوجو هنا -->
+            <img src="logo.png" alt="شعار elFouki Transcriber" class="logo">
+            <h1>elFouki Transcriber</h1>
+            <p>برنامج متقدم لنسخ وتحرير الفيديوهات والصوتيات مع دعم القرآن الكريم.</p>
+            <div class="buttons">
+                <a href="#features" class="btn">الميزات</a>
+                <a href="#download" class="btn"> قم بتحميل التطبيق</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الميزات -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>الميزات الرئيسية</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>تشغيل الوسائط</h3>
+                    <p>تشغيل الفيديوهات والصوتيات بجودة عالية.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>تحميل من يوتيوب</h3>
+                    <p>تحميل الفيديوهات من يوتيوب بسهولة.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>إدارة الإشارات المرجعية</h3>
+                    <p>إضافة وإدارة الإشارات المرجعية للفيديوهات.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>تحرير النصوص</h3>
+                    <p>تحرير النصوص مع دعم التراجع والإعادة.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>حفظ بتنسيقات متعددة</h3>
+                    <p>حفظ النصوص بتنسيقات TXT, DOCX, PDF, PNG.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>واجهة القرآن الكريم</h3>
+                    <p>تصفح القرآن الكريم مع إمكانية البحث والتحميل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التنزيلات -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2>تحميل التطبيق</h2>
+            <p>قم بتنزيل التطبيق الآن واستمتع بجميع الميزات.</p>
+            <a href="#" class="btn" id="download-btn">تحميل الآن</a>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>اتصل بنا</h2>
+            <form action="contact.php" method="post">
+                <input type="text" name="name" placeholder="اسمك" required>
+                <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+                <textarea name="message" placeholder="رسالتك" required></textarea>
+                <button type="submit">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 elFouki Transcriber. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // تحميل التطبيق
+        document.getElementById('download-btn').addEventListener('click', function() {
+            alert('جاري تحميل التطبيق...');
+        });
+    </script>
+
+<<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('status')) {
+            let status = urlParams.get('status');
+            let messageBox = document.createElement('div');
+            messageBox.style.padding = '15px';
+            messageBox.style.margin = '15px 0';
+            messageBox.style.borderRadius = '8px';
+            messageBox.style.textAlign = 'center';
+            messageBox.style.fontWeight = 'bold';
+            messageBox.style.width = '80%';
+            messageBox.style.margin = '10px auto';
+
+            if (status === 'success') {
+                messageBox.innerText = '🎉 تم إرسال الرسالة بنجاح!';
+                messageBox.style.backgroundColor = '#d4edda';
+                messageBox.style.color = '#155724';
+                messageBox.style.border = '1px solid #c3e6cb';
+            } else if (status === 'error_empty') {
+                messageBox.innerText = '⚠️ جميع الحقول مطلوبة!';
+                messageBox.style.backgroundColor = '#fff3cd';
+                messageBox.style.color = '#856404';
+                messageBox.style.border = '1px solid #ffeeba';
+            } else if (status === 'error_email') {
+                messageBox.innerText = '❌ البريد الإلكتروني غير صالح!';
+                messageBox.style.backgroundColor = '#f8d7da';
+                messageBox.style.color = '#721c24';
+                messageBox.style.border = '1px solid #f5c6cb';
+            } else if (status === 'error_send') {
+                messageBox.innerText = '❌ فشل في إرسال الرسالة. حاول مرة أخرى.';
+                messageBox.style.backgroundColor = '#f8d7da';
+                messageBox.style.color = '#721c24';
+                messageBox.style.border = '1px solid #f5c6cb';
+            }
+
+            document.body.prepend(messageBox);
+
+            // إزالة الرسالة بعد 5 ثوانٍ
+            setTimeout(() => {
+                messageBox.remove();
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }, 5000);
+        }
+    });
+</script>
+
+
+ </body>
+</html>
