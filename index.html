@@ -15,6 +15,8 @@
 
         /* ملف styles.css */
 
+        /* التنسيق العام للوغو */
+        /* التنسيق العام للوغو */
         .logo {
             width: 170px; /* عرض الصورة */
             height: auto; /* الحفاظ على نسبة الطول إلى العرض */
@@ -22,6 +24,18 @@
             top: 20px; /* المسافة من الأعلى */
             right: 20px; /* المسافة من اليمين */
         }
+
+        /* تعديل التنسيق عند الشاشات الصغيرة (وضع الهاتف) */
+        @media only screen and (max-width: 768px) {
+            .logo {
+                top: 10px; /* تقليل المسافة من الأعلى */
+                right: auto; /* إزالة المسافة من اليمين */
+                left: 50%; /* وضع اللوجو في منتصف الشاشة أفقيًا */
+                transform: translateX(-50%); /* توسيط اللوجو بدقة */
+                width: 120px; /* تقليل عرض الصورة */
+            }
+        }
+
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: #f4f4f4;
@@ -42,11 +56,12 @@
         header h1 {
             font-size: 3rem;
             margin-bottom: 10px;
+            padding-top:40px ;
         }
 
         header p {
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .buttons .btn {
@@ -253,7 +268,7 @@
                 </div>
                 <div class="feature-item">
                     <h3>واجهة القرآن الكريم</h3>
-                    <p>تصفح القرآن الكريم مع إمكانية البحث والتحميل.</p>
+                    <p>تصفح القرآن الكريم مع إمكانية البحث .</p>
                 </div>
             </div>
         </div>
